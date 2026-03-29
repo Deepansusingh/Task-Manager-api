@@ -1,0 +1,14 @@
+# Binaries
+*.exe
+*.out
+task-manager-api
+
+# Environment variables — never commit this
+.env
+
+# Go workspace
+go.work
+
+# IDE
+.vscode/
+.idea/
