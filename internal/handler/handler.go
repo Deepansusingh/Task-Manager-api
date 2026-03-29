@@ -284,4 +284,4 @@ func TaskByID(w http.ResponseWriter, r *http.Request) {
 	default:
 		response(w, http.StatusMethodNotAllowed, map[string]string{"error": "method not allowed"})
 	}
-}git remote add origin https://github.com/Deepansusingh/Task-Manger-api.git
+}
