@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/deepansusingh/task-manager-api/internal/model"
+	"github.com/Deepansusingh/Task-Manager-api/internal/model"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )

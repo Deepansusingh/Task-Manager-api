@@ -6,9 +6,9 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/deepansusingh/task-manager-api/internal/db"
-	"github.com/deepansusingh/task-manager-api/internal/handler"
-	"github.com/deepansusingh/task-manager-api/internal/middleware"
+	"github.com/Deepansusingh/Task-Manager-api/internal/db"
+	"github.com/Deepansusingh/Task-Manager-api/internal/handler"
+	"github.com/Deepansusingh/Task-Manager-api/internal/middleware"
 	"github.com/joho/godotenv"
 )
 

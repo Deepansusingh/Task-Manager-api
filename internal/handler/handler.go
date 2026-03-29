@@ -9,9 +9,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/deepansusingh/task-manager-api/internal/db"
-	"github.com/deepansusingh/task-manager-api/internal/middleware"
-	"github.com/deepansusingh/task-manager-api/internal/model"
+	"github.com/Deepansusingh/Task-Manager-api/internal/db"
+	"github.com/Deepansusingh/Task-Manager-api/internal/middleware"
+	"github.com/Deepansusingh/Task-Manager-api/internal/model"
 	"github.com/golang-jwt/jwt/v5"
 	"golang.org/x/crypto/bcrypt"
 )
