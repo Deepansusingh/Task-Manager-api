@@ -13,26 +13,30 @@ import (
 )
 
 func main() {
-	if err := godotenv.Load(); err != nil {
-		log.Fatal("Error loading .env file")
-	}
+	// Load .env locally — ignore error in production (Railway injects env vars directly)
+	godotenv.Load()
 
+	// Connect to database and run migrations
 	db.Connect()
 
+	// Set up routes
 	mux := http.NewServeMux()
 
-	// Public routes — no token needed
+	// Public routes
 	mux.HandleFunc("/health", handler.HealthCheck)
 	mux.HandleFunc("/auth/register", handler.Register)
 	mux.HandleFunc("/auth/login", handler.Login)
 
-	// Protected routes — token required
-	// middleware.AuthMiddleware wraps the handler
-	// it verifies the JWT before the handler ever runs
+	// Protected routes
 	mux.HandleFunc("/tasks", middleware.AuthMiddleware(handler.Tasks))
 	mux.HandleFunc("/tasks/", middleware.AuthMiddleware(handler.TaskByID))
 
-	port := ":" + os.Getenv("PORT")
-	fmt.Println("Server running on http://localhost" + port)
-	log.Fatal(http.ListenAndServe(port, mux))
+	// Railway injects PORT automatically — fallback to 9090 for local dev
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "9090"
+	}
+
+	fmt.Println("Server running on port " + port)
+	log.Fatal(http.ListenAndServe(":"+port, mux))
 }
